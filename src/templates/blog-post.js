@@ -5,6 +5,7 @@ import { MDXRenderer } from "gatsby-plugin-mdx"
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import Utterances from '../components/Utterances'
 import { rhythm, scale } from "../utils/typography"
 
 class BlogPostTemplate extends React.Component {
@@ -12,6 +13,8 @@ class BlogPostTemplate extends React.Component {
     const post = this.props.data.mdx
     const siteTitle = this.props.data.site.siteMetadata.title
     const { previous, next } = this.props.pageContext
+
+    console.log('post => ', post)
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
@@ -62,6 +65,8 @@ class BlogPostTemplate extends React.Component {
             )}
           </li>
         </ul>
+
+        <Utterances title={post.frontmatter.title} />
       </Layout>
     )
   }
@@ -81,9 +86,12 @@ export const pageQuery = graphql`
       id
       excerpt(pruneLength: 160)
       body
+      fields {
+        slug
+      }
       frontmatter {
         title
-        date(formatString: "MMMM DD, YYYY")
+        date(formatString: "YYYY-MM-DD")
         description
       }
     }
