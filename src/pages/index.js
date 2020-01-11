@@ -2,7 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import styled from 'styled-components'
 
-import Layout from '../components/Layout1'
+import Layout from '../components/Layout'
 import SEO from '../components/seo'
 import Article from '../components/Article'
 import Link from '../common-styles/Link'

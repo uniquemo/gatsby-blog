@@ -4,7 +4,7 @@ import { MDXRenderer } from 'gatsby-plugin-mdx'
 import styled from 'styled-components'
 
 import Bio from '../components/bio'
-import Layout from '../components/Layout1'
+import Layout from '../components/Layout'
 import SEO from '../components/seo'
 import Utterances from '../components/Utterances'
 import { PageTitle } from '../common-styles/Title'
@@ -12,7 +12,7 @@ import { rhythm } from '../utils/typography'
 import { PATHS } from '../constants/routes'
 
 const ArticleRoot = styled.div`
-  padding: 1em 2em;
+  padding: 1.5em 2em;
   background-color: #fff;
 `
 const ArticleDate = styled.div`
