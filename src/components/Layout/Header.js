@@ -8,6 +8,10 @@ import ROUTES from '../../constants/routes'
 import COLORS from '../../constants/colors'
 
 const Root = styled.div`
+  width: 100%;
+  position: fixed;
+  z-index: 10;
+  background-color: #fff;
   display: flex;
   align-items: center;
   padding: 0.6em 10em;
@@ -60,6 +64,7 @@ const Header = () => {
       }
     `
   )
+
   return (
     <Root>
       <Image fixed={avatar.childImageSharp.fixed} />
