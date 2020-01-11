@@ -1,12 +1,29 @@
-import React from "react"
-import { Link, graphql } from "gatsby"
-import { MDXRenderer } from "gatsby-plugin-mdx"
+import React from 'react'
+import { Link, graphql } from 'gatsby'
+import { MDXRenderer } from 'gatsby-plugin-mdx'
+import styled from 'styled-components'
 
-import Bio from "../components/bio"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Bio from '../components/bio'
+import Layout from '../components/Layout1'
+import SEO from '../components/seo'
 import Utterances from '../components/Utterances'
-import { rhythm, scale } from "../utils/typography"
+import { PageTitle } from '../common-styles/Title'
+import { rhythm } from '../utils/typography'
+import { PATHS } from '../constants/routes'
+
+const ArticleRoot = styled.div`
+  padding: 1em 2em;
+  background-color: #fff;
+`
+const ArticleDate = styled.div`
+  margin: 0.5em 0 2em;
+`
+const PrevNextWrap = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 2em 0;
+`
 
 class BlogPostTemplate extends React.Component {
   render() {
@@ -14,59 +31,38 @@ class BlogPostTemplate extends React.Component {
     const siteTitle = this.props.data.site.siteMetadata.title
     const { previous, next } = this.props.pageContext
 
-    console.log('post => ', post)
-
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <SEO
           title={post.frontmatter.title}
           description={post.frontmatter.description || post.excerpt}
         />
-        <h1>{post.frontmatter.title}</h1>
-        <p
-          style={{
-            ...scale(-1 / 5),
-            display: `block`,
-            marginBottom: rhythm(1),
-            marginTop: rhythm(-1),
-          }}
-        >
-          {post.frontmatter.date}
-        </p>
-        <MDXRenderer>{post.body}</MDXRenderer>
-        <hr
-          style={{
-            marginBottom: rhythm(1),
-          }}
-        />
-        <Bio />
+        <ArticleRoot>
+          <PageTitle>{post.frontmatter.title}</PageTitle>
+          <ArticleDate>{post.frontmatter.date}</ArticleDate>
+          <MDXRenderer>{post.body}</MDXRenderer>
+          <hr style={{ marginBottom: rhythm(0.8) }} />
+          <Bio />
 
-        <ul
-          style={{
-            display: `flex`,
-            flexWrap: `wrap`,
-            justifyContent: `space-between`,
-            listStyle: `none`,
-            padding: 0,
-          }}
-        >
-          <li>
-            {previous && (
-              <Link to={`blog${previous.fields.slug}`} rel="prev">
-                ← {previous.frontmatter.title}
-              </Link>
-            )}
-          </li>
-          <li>
-            {next && (
-              <Link to={`blog${next.fields.slug}`} rel="next">
-                {next.frontmatter.title} →
-              </Link>
-            )}
-          </li>
-        </ul>
+          <PrevNextWrap>
+            <div>
+              {previous && (
+                <Link to={`${PATHS.ARTICLES}${previous.fields.slug}`} rel='prev'>
+                  {`上一篇: ${previous.frontmatter.title}`}
+                </Link>
+              )}
+            </div>
+            <div>
+              {next && (
+                <Link to={`${PATHS.ARTICLES}${next.fields.slug}`} rel='next'>
+                  {`下一篇: ${next.frontmatter.title}`}
+                </Link>
+              )}
+            </div>
+          </PrevNextWrap>
 
-        <Utterances title={post.frontmatter.title} />
+          <Utterances title={post.frontmatter.title} />
+        </ArticleRoot>
       </Layout>
     )
   }

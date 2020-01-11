@@ -37,7 +37,7 @@ exports.createPages = ({ graphql, actions }) => {
       const next = index === 0 ? null : posts[index - 1].node
 
       createPage({
-        path: `blog${post.node.fields.slug}`,
+        path: `articles${post.node.fields.slug}`,
         component: blogPost,
         context: {
           slug: post.node.fields.slug,
