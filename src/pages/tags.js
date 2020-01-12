@@ -12,7 +12,7 @@ const TagsPage = ({ data, location }) => {
   useEffect(() => {
     const map = new Map()
     for (const { node } of posts) {
-      const tags = node.frontmatter.test || []
+      const tags = node.frontmatter.tags || []
       if (!tags.length) {
         continue
       }
@@ -56,7 +56,7 @@ export const pageQuery = graphql`
             date(formatString: "YYYY-MM-DD")
             title
             description
-            test
+            tags
           }
         }
       }

@@ -29,7 +29,7 @@ const Content = styled.div`
 const Article = ({ post, showTags }) => {
   const title = post.frontmatter.title || post.fields.slug
   const postLink = `${PATHS.ARTICLES}${post.fields.slug}`
-  const tags = post.frontmatter.test || []
+  const tags = post.frontmatter.tags || []
 
   return (
     <div className='box'>

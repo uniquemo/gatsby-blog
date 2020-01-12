@@ -31,8 +31,8 @@ const TagsWrap = styled.div`
 class BlogPostTemplate extends React.Component {
   render() {
     const post = this.props.data.mdx
-    const { title, test } = post.frontmatter
-    const tags = test || []
+    const { title, tags: allTags } = post.frontmatter
+    const tags = allTags || []
 
     const siteTitle = this.props.data.site.siteMetadata.title
     const { previous, next } = this.props.pageContext
@@ -100,7 +100,7 @@ export const pageQuery = graphql`
         title
         date(formatString: "YYYY-MM-DD")
         description
-        test
+        tags
       }
     }
   }

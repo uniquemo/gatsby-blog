@@ -44,7 +44,10 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMdx(sort: { fields: [frontmatter___date], order: DESC }, limit: 5) {
+    allMdx(
+      sort: { fields: [frontmatter___date], order: DESC }
+      limit: 5
+    ) {
       edges {
         node {
           excerpt
@@ -55,7 +58,7 @@ export const pageQuery = graphql`
             date(formatString: "YYYY-MM-DD")
             title
             description
-            test
+            tags
           }
         }
       }
