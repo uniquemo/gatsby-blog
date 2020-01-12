@@ -3,7 +3,7 @@ import { graphql } from 'gatsby'
 import styled from 'styled-components'
 
 import Layout from '../components/Layout'
-import SEO from '../components/SEO1'
+import SEO from '../components/SEO'
 import Article from '../components/Article'
 import Link from '../common-styles/Link'
 import { BlockTitle } from '../common-styles/Title'

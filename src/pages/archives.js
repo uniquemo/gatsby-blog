@@ -1,6 +1,6 @@
 import React from 'react'
 import Layout from '../components/Layout'
-import SEO from '../components/SEO1'
+import SEO from '../components/SEO'
 
 const ArchivesPage = ({ location }) => {
   return (
