@@ -3,7 +3,7 @@ import { graphql } from 'gatsby'
 import styled from 'styled-components'
 
 import Layout from '../components/Layout'
-import SEO from '../components/seo'
+import SEO from '../components/SEO1'
 import Article from '../components/Article'
 
 const PostWrap = styled.div`
