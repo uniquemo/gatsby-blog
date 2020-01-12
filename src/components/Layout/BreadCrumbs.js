@@ -40,6 +40,7 @@ const BreadCrumbs = ({ location }) => {
     }
 
     setCrumbs(pathObjs)
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const len = crumbs.length
