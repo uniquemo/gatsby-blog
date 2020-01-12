@@ -3,6 +3,7 @@ import { useStaticQuery, graphql } from 'gatsby'
 import Image from 'gatsby-image'
 import styled from 'styled-components'
 import Link from 'common-styles/Link'
+import { FlexCenter } from 'common-styles/Flex'
 
 import ROUTES from 'constants/routes'
 import COLORS from 'constants/colors'
@@ -14,6 +15,7 @@ const Root = styled.div`
   background-color: #fff;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   padding: 0.6em 10em;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
 `
@@ -32,7 +34,6 @@ const BannerItem = styled.div`
 
   & a {
     color: ${props => props.isActive ? COLORS.FONT_PRIMARY : COLORS.FONT_GREY};
-    box-shadow: none;
   }
 `
 
@@ -56,10 +57,24 @@ const BANNERS = [
 ]
 
 const Header = ({ location }) => {
-  const { avatar } = useStaticQuery(
+  const { avatar, githubLogo, site } = useStaticQuery(
     graphql`
       query {
+        site {
+          siteMetadata {
+            social {
+              github
+            }
+          }
+        }
         avatar: file(absolutePath: { regex: "/profile-pic.jpeg/" }) {
+          childImageSharp {
+            fixed(width: 50, height: 50) {
+              ...GatsbyImageSharpFixed
+            }
+          }
+        }
+        githubLogo: file(absolutePath: { regex: "/github-logo.png/" }) {
           childImageSharp {
             fixed(width: 50, height: 50) {
               ...GatsbyImageSharpFixed
@@ -72,22 +87,27 @@ const Header = ({ location }) => {
 
   return (
     <Root>
-      <Image fixed={avatar.childImageSharp.fixed} />
-      <BlogTitle>莫泳欣的博客</BlogTitle>
-      <BannerWrap>
-        {BANNERS.map(({ label, route }) => {
-          const isActive =
-            (route === ROUTES.HOME && location.pathname === ROUTES.HOME) ||
-            (route !== ROUTES.HOME && location.pathname.startsWith(route))
-          return (
-            <BannerItem key={label} isActive={isActive}>
-              <Link to={route}>
-                <span>{label}</span>
-              </Link>
-            </BannerItem>
-          )
-        })}
-      </BannerWrap>
+      <FlexCenter>
+        <Image fixed={avatar.childImageSharp.fixed} />
+        <BlogTitle>莫泳欣的博客</BlogTitle>
+        <BannerWrap>
+          {BANNERS.map(({ label, route }) => {
+            const isActive =
+              (route === ROUTES.HOME && location.pathname === ROUTES.HOME) ||
+              (route !== ROUTES.HOME && location.pathname.startsWith(route))
+            return (
+              <BannerItem key={label} isActive={isActive}>
+                <Link to={route}>
+                  <strong>{label}</strong>
+                </Link>
+              </BannerItem>
+            )
+          })}
+        </BannerWrap>
+      </FlexCenter>
+      <a href={site.siteMetadata.social.github} target='__blank'>
+        <Image fixed={githubLogo.childImageSharp.fixed} />
+      </a>
     </Root>
   )
 }

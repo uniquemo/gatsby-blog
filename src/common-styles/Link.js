@@ -10,19 +10,4 @@ const StyledLink = styled(Link)`
   }
 `
 
-export const ButtonLink = styled(Link)`
-  padding: 0.3em 0.5em;
-  border: 1px solid ${COLORS.FONT_GREY};
-  border-radius: 2px;
-  box-shadow: none;
-  font-size: 0.75rem;
-  color: ${COLORS.FONT_GREY};
-  text-decoration: none;
-
-  &:hover {
-    border: 1px solid ${COLORS.FONT_PRIMARY};
-    color: ${COLORS.FONT_PRIMARY};
-  }
-`
-
 export default StyledLink

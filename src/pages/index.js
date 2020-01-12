@@ -6,11 +6,13 @@ import Layout from 'components/Layout'
 import SEO from 'components/SEO'
 import Article from 'components/Article'
 import Link from 'common-styles/Link'
-import { BlockTitle } from 'common-styles/Title'
 import ROUTES from 'constants/routes'
 
 const LatestArticles = styled.div``
 const LatestArticlesWrap = styled.div``
+const ButtonLink = styled.div`
+  margin-top: 1.5em;
+`
 
 const IndexPage = ({ data, location }) => {
   const latestPosts = data.allMdx.edges
@@ -19,15 +21,15 @@ const IndexPage = ({ data, location }) => {
     <Layout location={location}>
       <SEO title='Home' keywords={[`blog`, `gatsby`, `javascript`, `react`]} />
       <LatestArticles>
-        <BlockTitle>最近文章</BlockTitle>
+        <div className='title is-5'>最近文章</div>
         <LatestArticlesWrap>
           {latestPosts.map(({ node: post }, index) => <Article post={post} key={index} />)}
         </LatestArticlesWrap>
-        <div>
+        <ButtonLink>
           <Link to={ROUTES.ARTICLES}>
-            阅读更多文章 >
+            <button className='button is-fullwidth'>查看全部文章</button>
           </Link>
-        </div>
+        </ButtonLink>
       </LatestArticles>
     </Layout>
   )

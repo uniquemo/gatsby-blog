@@ -6,11 +6,7 @@ import { FlexCenter } from 'common-styles/Flex'
 const Root = styled(FlexCenter)`
   padding: 1em 0;
 `
-const Crumb = styled.span`
-  & a {
-    box-shadow: none;
-  }
-`
+const Crumb = styled.span``
 const Slash = styled.span`
   padding: 0 0.8em;
 `

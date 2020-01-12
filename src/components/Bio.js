@@ -10,7 +10,6 @@ import { StaticQuery, graphql } from 'gatsby'
 import Image from 'gatsby-image'
 import styled from 'styled-components'
 
-import { Button } from 'common-styles/Button'
 import { FlexCenter } from 'common-styles/Flex'
 import { rhythm } from 'utils/typography'
 
@@ -47,7 +46,9 @@ const Bio = () => {
                 <div>Do some lovely things, write some code~</div>
               </div>
             </FlexCenter>
-            <Button href={social.github} target='__blank'>Follow</Button>
+            <a href={social.github} target='__blank'>
+              <button className='button is-small'>Follow</button>
+            </a>
           </Container>
         )
       }}

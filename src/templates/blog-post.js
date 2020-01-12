@@ -11,10 +11,6 @@ import { PageTitle } from 'common-styles/Title'
 import { rhythm } from 'utils/typography'
 import { PATHS } from 'constants/routes'
 
-const ArticleRoot = styled.div`
-  padding: 1.5em 2em;
-  background-color: #fff;
-`
 const ArticleDate = styled.div`
   margin: 0.5em 0 1em;
 `
@@ -37,7 +33,7 @@ class BlogPostTemplate extends React.Component {
           title={post.frontmatter.title}
           description={post.frontmatter.description || post.excerpt}
         />
-        <ArticleRoot>
+        <div className='box'>
           <PageTitle>{post.frontmatter.title}</PageTitle>
           <ArticleDate>{post.frontmatter.date}</ArticleDate>
           <MDXRenderer>{post.body}</MDXRenderer>
@@ -62,7 +58,7 @@ class BlogPostTemplate extends React.Component {
           </PrevNextWrap>
 
           <Utterances title={post.frontmatter.title} />
-        </ArticleRoot>
+        </div>
       </Layout>
     )
   }
