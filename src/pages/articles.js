@@ -10,24 +10,21 @@ const PostWrap = styled.div`
   margin: 0 0 40px;
 `
 
-class Blog extends React.Component {
-  render() {
-    const { data } = this.props
-    const siteTitle = data.site.siteMetadata.title
-    const posts = data.allMdx.edges
+const Articles = ({ data, location }) => {
+  const siteTitle = data.site.siteMetadata.title
+  const posts = data.allMdx.edges
 
-    return (
-      <Layout location={this.props.location} title={siteTitle}>
-        <SEO title='All posts' />
-        <PostWrap>
-          {posts.map(({ node: post }, index) => <Article post={post} key={index} />)}
-        </PostWrap>
-      </Layout>
-    )
-  }
+  return (
+    <Layout location={location} title={siteTitle}>
+      <SEO title='All posts' />
+      <PostWrap>
+        {posts.map(({ node: post }, index) => <Article post={post} key={index} />)}
+      </PostWrap>
+    </Layout>
+  )
 }
 
-export default Blog
+export default Articles
 
 export const pageQuery = graphql`
   query {

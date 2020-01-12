@@ -2,9 +2,9 @@ import React from 'react'
 import Layout from '../components/Layout'
 import SEO from '../components/seo'
 
-const AboutPage = () => {
+const AboutPage = ({ location }) => {
   return (
-    <Layout>
+    <Layout location={location}>
       <SEO title='About page' keywords={['FrontEnd Developer', 'React', 'Node', 'Gatsby']} />
       <div>to do</div>
     </Layout>

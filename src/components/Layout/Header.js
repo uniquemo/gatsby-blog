@@ -29,6 +29,11 @@ const BannerWrap = styled.div`
 `
 const BannerItem = styled.div`
   margin-right: 2em;
+
+  & a {
+    color: ${props => props.isActive ? COLORS.FONT_PRIMARY : COLORS.FONT_GREY};
+    box-shadow: none;
+  }
 `
 
 const BANNERS = [
@@ -50,7 +55,7 @@ const BANNERS = [
   }
 ]
 
-const Header = () => {
+const Header = ({ location }) => {
   const { avatar } = useStaticQuery(
     graphql`
       query {
@@ -71,8 +76,11 @@ const Header = () => {
       <BlogTitle>莫泳欣的博客</BlogTitle>
       <BannerWrap>
         {BANNERS.map(({ label, route }) => {
+          const isActive =
+            (route === ROUTES.HOME && location.pathname === ROUTES.HOME) ||
+            (route !== ROUTES.HOME && location.pathname.startsWith(route))
           return (
-            <BannerItem key={label}>
+            <BannerItem key={label} isActive={isActive}>
               <Link to={route}>
                 <span>{label}</span>
               </Link>

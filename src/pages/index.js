@@ -12,11 +12,11 @@ import ROUTES from '../constants/routes'
 const LatestArticles = styled.div``
 const LatestArticlesWrap = styled.div``
 
-const IndexPage = ({ data }) => {
+const IndexPage = ({ data, location }) => {
   const latestPosts = data.allMdx.edges
 
   return (
-    <Layout>
+    <Layout location={location}>
       <SEO title='Home' keywords={[`blog`, `gatsby`, `javascript`, `react`]} />
       <LatestArticles>
         <BlockTitle>最近文章</BlockTitle>

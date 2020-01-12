@@ -4,10 +4,10 @@ export const PATHS = {
   ABOUT: 'about'
 }
 
-const HOME = `${__PATH_PREFIX__}`
-const ARTICLES = `${HOME}/${PATHS.ARTICLES}`
-const ARCHIVES = `${HOME}/${PATHS.ARCHIVES}`
-const ABOUT = `${HOME}/${PATHS.ABOUT}`
+const HOME = `${__PATH_PREFIX__}/`
+const ARTICLES = `${HOME}${PATHS.ARTICLES}`
+const ARCHIVES = `${HOME}${PATHS.ARCHIVES}`
+const ABOUT = `${HOME}${PATHS.ABOUT}`
 
 const ROUTES = {
   HOME,
