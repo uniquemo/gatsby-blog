@@ -6,6 +6,7 @@ import BreadCrumbs from './BreadCrumbs'
 import ScrollToTop from 'components/ScrollToTop'
 
 import COLORS from 'constants/colors'
+import 'styles/common.scss'
 
 const Root = styled.div`
   display: flex;
