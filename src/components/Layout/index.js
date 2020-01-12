@@ -28,7 +28,10 @@ const Layout = ({ children, location }) => {
       <Header location={location} />
       <Content>
         <BreadCrumbs location={location} />
-        {children}
+        {/* In order to fix `bulma style conflicts with markdown`. Reference: https://github.com/jgthms/bulma/issues/1603 */}
+        <div className='content'>
+          {children}
+        </div>
       </Content>
       <Footer />
       <ScrollToTop />

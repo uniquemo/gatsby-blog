@@ -16,7 +16,7 @@ const ArticleRoot = styled.div`
   background-color: #fff;
 `
 const ArticleDate = styled.div`
-  margin: 0.5em 0 2em;
+  margin: 0.5em 0 1em;
 `
 const PrevNextWrap = styled.div`
   display: flex;
