@@ -51,6 +51,10 @@ const BANNERS = [
     route: ROUTES.ARCHIVES
   },
   {
+    label: 'Tags',
+    route: ROUTES.TAGS
+  },
+  {
     label: 'About',
     route: ROUTES.ABOUT
   }
