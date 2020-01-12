@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
-import Link, { ButtonLink } from '../../common-styles/Link'
-import COLORS from '../../constants/colors'
-import { PATHS } from '../../constants/routes'
+import Link, { ButtonLink } from 'common-styles/Link'
+import COLORS from 'constants/colors'
+import { PATHS } from 'constants/routes'
 
 const Root = styled.div`
   padding: 1.25rem;

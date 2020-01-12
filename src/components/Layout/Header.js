@@ -2,10 +2,10 @@ import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import Image from 'gatsby-image'
 import styled from 'styled-components'
-import Link from '../../common-styles/Link'
+import Link from 'common-styles/Link'
 
-import ROUTES from '../../constants/routes'
-import COLORS from '../../constants/colors'
+import ROUTES from 'constants/routes'
+import COLORS from 'constants/colors'
 
 const Root = styled.div`
   width: 100%;

@@ -10,9 +10,9 @@ import { StaticQuery, graphql } from 'gatsby'
 import Image from 'gatsby-image'
 import styled from 'styled-components'
 
-import { Button } from '../common-styles/Button'
-import { FlexCenter } from '../common-styles/Flex'
-import { rhythm } from '../utils/typography'
+import { Button } from 'common-styles/Button'
+import { FlexCenter } from 'common-styles/Flex'
+import { rhythm } from 'utils/typography'
 
 const Container = styled.div`
   display: flex;

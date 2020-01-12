@@ -3,9 +3,9 @@ import styled from 'styled-components'
 import Header from './Header'
 import Footer from './Footer'
 import BreadCrumbs from './BreadCrumbs'
-import ScrollToTop from '../ScrollToTop'
+import ScrollToTop from 'components/ScrollToTop'
 
-import COLORS from '../../constants/colors'
+import COLORS from 'constants/colors'
 
 const Root = styled.div`
   display: flex;

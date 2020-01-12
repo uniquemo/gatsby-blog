@@ -2,9 +2,9 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import styled from 'styled-components'
 
-import Layout from '../components/Layout'
-import SEO from '../components/SEO'
-import Article from '../components/Article'
+import Layout from 'components/Layout'
+import SEO from 'components/SEO'
+import Article from 'components/Article'
 
 const PostWrap = styled.div`
   margin: 0 0 40px;

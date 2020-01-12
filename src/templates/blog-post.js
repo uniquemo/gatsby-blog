@@ -3,13 +3,13 @@ import { Link, graphql } from 'gatsby'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import styled from 'styled-components'
 
-import Bio from '../components/Bio'
-import Layout from '../components/Layout'
-import SEO from '../components/SEO'
-import Utterances from '../components/Utterances'
-import { PageTitle } from '../common-styles/Title'
-import { rhythm } from '../utils/typography'
-import { PATHS } from '../constants/routes'
+import SEO from 'components/SEO'
+import Bio from 'components/Bio'
+import Layout from 'components/Layout'
+import Utterances from 'components/Utterances'
+import { PageTitle } from 'common-styles/Title'
+import { rhythm } from 'utils/typography'
+import { PATHS } from 'constants/routes'
 
 const ArticleRoot = styled.div`
   padding: 1.5em 2em;

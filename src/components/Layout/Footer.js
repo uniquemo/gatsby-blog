@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import COLORS from '../../constants/colors'
+import COLORS from 'constants/colors'
 
 const Root = styled.div`
   padding: 2em 0;

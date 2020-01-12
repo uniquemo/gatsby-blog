@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import COLORS from '../constants/colors'
+import COLORS from 'constants/colors'
 
 export const BlockTitle = styled.div`
   margin-bottom: 1em;

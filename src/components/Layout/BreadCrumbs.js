@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import styled from 'styled-components'
-import { FlexCenter } from '../../common-styles/Flex'
+import { FlexCenter } from 'common-styles/Flex'
 
 const Root = styled(FlexCenter)`
   padding: 1em 0;
