@@ -26,7 +26,7 @@ const Content = styled.div`
   padding: 0.8em 0;
 `
 
-const Article = ({ post }) => {
+const Article = ({ post, showTags }) => {
   const title = post.frontmatter.title || post.fields.slug
   const postLink = `${PATHS.ARTICLES}${post.fields.slug}`
   const tags = post.frontmatter.test || []
@@ -40,9 +40,9 @@ const Article = ({ post }) => {
               <strong>{title}</strong>
             </Link>
           </ArticleTitle>
-          <Tags tags={tags} />
+          {showTags && <Tags tags={tags} />}
         </FlexCenter>
-        <ArticleDate>{post.frontmatter.date}</ArticleDate>
+        {<ArticleDate>{post.frontmatter.date}</ArticleDate>}
       </Header>
       <Content>{post.frontmatter.description || post.excerpt}</Content>
       <div>

@@ -47,7 +47,7 @@ const Bio = () => {
               </div>
             </FlexCenter>
             <a href={social.github} target='__blank'>
-              <button className='button is-small'>Follow</button>
+              <button className='button is-primary is-outlined is-small'>Follow</button>
             </a>
           </Container>
         )

@@ -22,6 +22,7 @@ const PrevNextWrap = styled.div`
   align-items: center;
   justify-content: space-between;
   margin: 2em 0;
+  font-weight: bold;
 `
 const TagsWrap = styled.div`
   margin-left: 1em;

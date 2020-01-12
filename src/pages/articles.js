@@ -18,7 +18,7 @@ const Articles = ({ data, location }) => {
     <Layout location={location} title={siteTitle}>
       <SEO title='All posts' />
       <PostWrap>
-        {posts.map(({ node: post }, index) => <Article post={post} key={index} />)}
+        {posts.map(({ node: post }, index) => <Article post={post} key={index} showTags />)}
       </PostWrap>
     </Layout>
   )
