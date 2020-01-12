@@ -1,12 +1,15 @@
 import React from 'react'
 import styled from 'styled-components'
 import Link from 'common-styles/Link'
+import { FlexCenter } from 'common-styles/Flex'
+import { Date } from 'common-styles/PageInfo'
+import Tags from 'components/Tags'
 import COLORS from 'constants/colors'
 import { PATHS } from 'constants/routes'
 
 const Header = styled.div`
   display: flex;
-  align-items: center;
+  flex-direction: column;
 `
 const ArticleTitle = styled.div`
   margin-right: 1em;
@@ -16,23 +19,30 @@ const ArticleTitle = styled.div`
     color: ${COLORS.FONT_PRIMARY};
   }
 `
+const ArticleDate = styled(Date)`
+  margin-top: 0.5em;
+`
 const Content = styled.div`
-  padding: 1em 0;
+  padding: 0.8em 0;
 `
 
 const Article = ({ post }) => {
   const title = post.frontmatter.title || post.fields.slug
   const postLink = `${PATHS.ARTICLES}${post.fields.slug}`
+  const tags = post.frontmatter.test || []
 
   return (
     <div className='box'>
       <Header>
-        <ArticleTitle>
-          <Link to={postLink}>
-            <strong>{title}</strong>
-          </Link>
-        </ArticleTitle>
-        <div>{post.frontmatter.date}</div>
+        <FlexCenter>
+          <ArticleTitle>
+            <Link to={postLink}>
+              <strong>{title}</strong>
+            </Link>
+          </ArticleTitle>
+          <Tags tags={tags} />
+        </FlexCenter>
+        <ArticleDate>{post.frontmatter.date}</ArticleDate>
       </Header>
       <Content>{post.frontmatter.description || post.excerpt}</Content>
       <div>

@@ -7,11 +7,14 @@ import SEO from 'components/SEO'
 import Bio from 'components/Bio'
 import Layout from 'components/Layout'
 import Utterances from 'components/Utterances'
+import Tags from 'components/Tags'
 import { PageTitle } from 'common-styles/Title'
+import { FlexCenter } from 'common-styles/Flex'
+import { Date } from 'common-styles/PageInfo'
 import { rhythm } from 'utils/typography'
 import { PATHS } from 'constants/routes'
 
-const ArticleDate = styled.div`
+const ArticleDate = styled(Date)`
   margin: 0.5em 0 1em;
 `
 const PrevNextWrap = styled.div`
@@ -20,21 +23,32 @@ const PrevNextWrap = styled.div`
   justify-content: space-between;
   margin: 2em 0;
 `
+const TagsWrap = styled.div`
+  margin-left: 1em;
+`
 
 class BlogPostTemplate extends React.Component {
   render() {
     const post = this.props.data.mdx
+    const { title, test } = post.frontmatter
+    const tags = test || []
+
     const siteTitle = this.props.data.site.siteMetadata.title
     const { previous, next } = this.props.pageContext
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <SEO
-          title={post.frontmatter.title}
+          title={title}
           description={post.frontmatter.description || post.excerpt}
         />
         <div className='box'>
-          <PageTitle>{post.frontmatter.title}</PageTitle>
+          <FlexCenter>
+            <PageTitle>{title}</PageTitle>
+            <TagsWrap>
+              <Tags tags={tags} />
+            </TagsWrap>
+          </FlexCenter>
           <ArticleDate>{post.frontmatter.date}</ArticleDate>
           <MDXRenderer>{post.body}</MDXRenderer>
           <hr style={{ marginBottom: rhythm(0.8) }} />
@@ -57,7 +71,7 @@ class BlogPostTemplate extends React.Component {
             </div>
           </PrevNextWrap>
 
-          <Utterances title={post.frontmatter.title} />
+          <Utterances title={title} />
         </div>
       </Layout>
     )
@@ -85,6 +99,7 @@ export const pageQuery = graphql`
         title
         date(formatString: "YYYY-MM-DD")
         description
+        test
       }
     }
   }
