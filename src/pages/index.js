@@ -46,6 +46,7 @@ export const pageQuery = graphql`
     }
     allMdx(
       sort: { fields: [frontmatter___date], order: DESC }
+      filter: { frontmatter: { layout: { eq: "blog-post" } } }
       limit: 5
     ) {
       edges {

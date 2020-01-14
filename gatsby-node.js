@@ -5,6 +5,8 @@ exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
 
   const blogPost = path.resolve(`./src/templates/blog-post.js`)
+  const aboutPage = path.resolve(`./src/templates/about-page.js`)
+
   return graphql(
     `
       {
@@ -19,6 +21,7 @@ exports.createPages = ({ graphql, actions }) => {
               }
               frontmatter {
                 title
+                layout
               }
             }
           }
@@ -32,9 +35,10 @@ exports.createPages = ({ graphql, actions }) => {
 
     const posts = result.data.allMdx.edges
 
-    posts.forEach((post, index) => {
-      const previous = index === posts.length - 1 ? null : posts[index + 1].node
-      const next = index === 0 ? null : posts[index - 1].node
+    const blogPosts = posts.filter(post => post.node.frontmatter.layout === 'blog-post')
+    blogPosts.forEach((post, index) => {
+      const previous = index === blogPosts.length - 1 ? null : blogPosts[index + 1].node
+      const next = index === 0 ? null : blogPosts[index - 1].node
 
       createPage({
         path: `articles${post.node.fields.slug}`,
@@ -46,6 +50,18 @@ exports.createPages = ({ graphql, actions }) => {
         },
       })
     })
+
+    posts
+      .filter(post => post.node.frontmatter.layout === 'about-page')
+      .forEach(post => (
+        createPage({
+          path: 'about',
+          component: aboutPage,
+          context: {
+            slug: post.node.fields.slug
+          }
+        })
+      ))
 
     return null
   })
@@ -64,7 +80,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   }
 }
 
-exports.onCreateWebpackConfig = ({ stage, actions }) => {
+exports.onCreateWebpackConfig = ({ actions }) => {
   actions.setWebpackConfig({
     resolve: {
       modules: [path.resolve(__dirname, 'src'), 'node_modules']
@@ -75,11 +91,12 @@ exports.onCreateWebpackConfig = ({ stage, actions }) => {
 exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions
   const typeDefs = `
-    type MarkdownRemark implements Node {
+    type Mdx implements Node {
       frontmatter: Frontmatter
     }
     type Frontmatter {
       tags: [String]
+      layout: String
     }
   `
   createTypes(typeDefs)
