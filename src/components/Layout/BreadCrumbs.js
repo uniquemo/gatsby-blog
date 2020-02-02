@@ -20,7 +20,7 @@ const BreadCrumbs = ({ location }) => {
 
   useEffect(() => {
     const { pathname } = location
-    const paths = pathname.split('/').filter(p => p)
+    const paths = decodeURIComponent(pathname).split('/').filter(p => p)
     const pathObjs = []
 
     paths.forEach((p, index) => {

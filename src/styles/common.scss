@@ -5,3 +5,33 @@
 a {
   box-shadow: none;
 }
+
+// 覆盖 gatsby-remark-vscode/styles.css 的样式
+.vscode-highlight {
+  --vscode-highlight-padding-v: 0;
+  --vscode-highlight-padding-h: 0;
+  --vscode-highlight-padding-top: var(--vscode-highlight-padding-v);
+  --vscode-highlight-padding-right: var(--vscode-highlight-padding-h);
+  --vscode-highlight-padding-bottom: var(--vscode-highlight-padding-v);
+  --vscode-highlight-padding-left: var(--vscode-highlight-padding-h);
+  --vscode-highlight-border-radius: 5px;
+
+  /* Line highlighting: see next section */
+  --vscode-highlight-line-highlighted-background-color: transparent;
+  --vscode-highlight-line-highlighted-border-width: 4px;
+  --vscode-highlight-line-highlighted-border-color: transparent;
+}
+
+.content {
+  & h1,
+  & h2,
+  & h3,
+  & h4,
+  & h5 {
+    font-family: "open sans", "Helvetica Neue", "Microsoft Yahei", Helvetica, Arial, sans-serif;
+  }
+}
+
+.content pre {
+  padding: 0.6em 1em;
+}

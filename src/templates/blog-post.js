@@ -34,6 +34,8 @@ class BlogPostTemplate extends React.Component {
     const { title, tags: allTags } = post.frontmatter
     const tags = allTags || []
 
+    const { readingTime } = post.fields
+
     const siteTitle = this.props.data.site.siteMetadata.title
     const { previous, next } = this.props.pageContext
 
@@ -50,7 +52,10 @@ class BlogPostTemplate extends React.Component {
               <Tags tags={tags} />
             </TagsWrap>
           </FlexCenter>
-          <ArticleDate>{post.frontmatter.date}</ArticleDate>
+          <ArticleDate>
+            {post.frontmatter.date}&nbsp;
+            <span>{`总共 ${readingTime.words} words, ${readingTime.text}`}</span>
+          </ArticleDate>
           <MDXRenderer>{post.body}</MDXRenderer>
           <hr style={{ marginBottom: rhythm(0.8) }} />
           <Bio />
@@ -95,6 +100,10 @@ export const pageQuery = graphql`
       body
       fields {
         slug
+        readingTime {
+          text
+          words
+        }
       }
       frontmatter {
         title
