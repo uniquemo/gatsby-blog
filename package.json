@@ -28,6 +28,7 @@
     "gatsby-remark-reading-time": "^1.1.0",
     "gatsby-remark-responsive-iframe": "^2.1.1",
     "gatsby-remark-smartypants": "^2.0.9",
+    "gatsby-remark-toc": "^1.2.0",
     "gatsby-remark-vscode": "^1.0.4",
     "gatsby-source-filesystem": "^2.0.29",
     "gatsby-transformer-sharp": "^2.1.18",

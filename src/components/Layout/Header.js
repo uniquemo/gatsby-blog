@@ -10,6 +10,7 @@ import COLORS from 'constants/colors'
 
 const Root = styled.div`
   width: 100%;
+  min-width: 1200px;
   position: fixed;
   z-index: 10;
   background-color: #fff;

@@ -98,6 +98,7 @@ export const pageQuery = graphql`
       id
       excerpt(pruneLength: 160)
       body
+      tableOfContents
       fields {
         slug
         readingTime {

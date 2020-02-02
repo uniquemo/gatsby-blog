@@ -43,6 +43,10 @@ module.exports = {
       resolve: `gatsby-plugin-mdx`,
       options: {
         extensions: [".mdx", ".md"],
+        tableOfContents: {
+          heading: null,
+          maxDepth: 6,
+        },
         gatsbyRemarkPlugins: [
           {
             resolve: `gatsby-remark-images`,
@@ -70,11 +74,15 @@ module.exports = {
           },
           {
             resolve: `gatsby-remark-autolink-headers`,
+          },
+          {
+            resolve: 'gatsby-remark-toc',
             options: {
-              offsetY: `100`,
-              maintainCase: true,
-              enableCustomId: true
-            },
+              header: 'Table of Content',
+              include: [
+                'content/**/*.md'
+              ]
+            }
           }
         ],
       },
