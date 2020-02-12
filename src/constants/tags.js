@@ -2,10 +2,11 @@ const TAGS_COLORS = {
   typescript: 'is-primary',
   javascript: 'is-warning',
   webpack: 'is-link',
-  NETWORK: 'is-info',
-  BROWSER: 'is-success',
-  NODE: 'is-danger',
-  REACT: 'is-light'
+  network: 'is-info',
+  browser: 'is-success',
+  node: 'is-danger',
+  react: 'is-light',
+  摘抄: 'is-primary'
 }
 
 export default TAGS_COLORS
