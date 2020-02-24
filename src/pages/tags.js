@@ -1,4 +1,5 @@
 import React from 'react'
+import Link from 'common-styles/Link'
 import Layout from 'components/Layout'
 import SEO from 'components/SEO'
 import TAGS_COLORS from 'constants/tags'
@@ -32,7 +33,9 @@ const TagsPage = ({ data, location }) => {
         {Array.from(tagsMap).map(([tag, count], index) => {
           return (
             <span key={index} className={`tag ${TAGS_COLORS[tag]}`}>
-              <strong>{`${tag} (${count})`}</strong>
+              <Link to={`tags/${tag}`}>
+                <strong>{`${tag} (${count})`}</strong>
+              </Link>
             </span>
           )
         })}

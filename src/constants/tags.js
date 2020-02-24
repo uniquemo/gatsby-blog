@@ -7,7 +7,9 @@ const TAGS_COLORS = {
   node: 'is-danger',
   react: 'is-light',
   摘抄: 'is-primary',
-  英语: 'is-warning'
+  英语: 'is-warning',
+  面试: 'is-info',
+  todo: 'is-danger'
 }
 
 export default TAGS_COLORS
