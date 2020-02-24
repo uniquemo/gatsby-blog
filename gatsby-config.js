@@ -28,6 +28,13 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
+        path: `${__dirname}/content/review`,
+        name: `review`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
         path: `${__dirname}/content/assets`,
         name: `assets`,
       },
@@ -78,7 +85,7 @@ module.exports = {
           {
             resolve: 'gatsby-remark-toc',
             options: {
-              header: 'Table of Content',
+              header: 'Table of Contents',
               include: [
                 'content/**/*.md'
               ]

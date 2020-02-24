@@ -56,6 +56,10 @@ const BANNERS = [
     route: ROUTES.TAGS
   },
   {
+    label: 'Reviews',
+    route: ROUTES.REVIEWS
+  },
+  {
     label: 'About',
     route: ROUTES.ABOUT
   }
@@ -94,7 +98,7 @@ const Header = ({ location }) => {
     <Root>
       <FlexCenter>
         <Image fixed={avatar.childImageSharp.fixed} />
-        <BlogTitle>莫泳欣的博客</BlogTitle>
+        <BlogTitle>YongxinMo的博客</BlogTitle>
         <BannerWrap>
           {BANNERS.map(({ label, route }) => {
             const isActive =
