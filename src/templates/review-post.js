@@ -7,7 +7,6 @@ import SEO from 'components/SEO'
 import Bio from 'components/Bio'
 import Layout from 'components/Layout'
 import { PageTitle } from 'common-styles/Title'
-import { FlexCenter } from 'common-styles/Flex'
 import { rhythm } from 'utils/typography'
 import { PATHS } from 'constants/routes'
 
@@ -17,6 +16,9 @@ const PrevNextWrap = styled.div`
   justify-content: space-between;
   margin: 2em 0;
   font-weight: bold;
+`
+const Content = styled.div`
+  margin-top: 1em;
 `
 
 const ReviewPostTemplate = props => {
@@ -30,10 +32,10 @@ const ReviewPostTemplate = props => {
     <Layout location={props.location} title={siteTitle}>
       <SEO title={title} description={post.frontmatter.description || post.excerpt} />
       <div className='box'>
-        <FlexCenter>
-          <PageTitle>{title}</PageTitle>
-        </FlexCenter>
-        <MDXRenderer>{post.body}</MDXRenderer>
+        <PageTitle>{title}</PageTitle>
+        <Content>
+          <MDXRenderer>{post.body}</MDXRenderer>
+        </Content>
         <hr style={{ marginBottom: rhythm(0.8) }} />
         <Bio />
 
