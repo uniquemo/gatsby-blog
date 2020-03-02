@@ -20,6 +20,7 @@ const Title = styled.div`
 
 const Item = ({ post }) => {
   const title = post.frontmatter.title || post.fields.slug
+  const description = post.frontmatter.description
   const postLink = `${PATHS.REVIEWS}${post.fields.slug}`
 
   return (
@@ -27,6 +28,7 @@ const Item = ({ post }) => {
       <Link to={postLink}>
         <strong>{title}</strong>
       </Link>
+      {description && <span>{`  ${description}`}</span>}
     </Title>
   )
 }
@@ -67,6 +69,7 @@ export const pageQuery = graphql`
           frontmatter {
             date(formatString: "YYYY-MM-DD")
             title
+            description
           }
         }
       }
