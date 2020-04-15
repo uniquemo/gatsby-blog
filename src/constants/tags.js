@@ -11,7 +11,8 @@ const TAGS_COLORS = {
   面试: 'is-info',
   todo: 'is-danger',
   算法与数据结构: 'is-success',
-  阅读写作: 'is-primary'
+  阅读写作: 'is-primary',
+  编辑器: 'is-light'
 }
 
 export default TAGS_COLORS
