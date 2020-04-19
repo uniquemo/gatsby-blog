@@ -86,14 +86,6 @@ HMACSHA256(
 JWT作为一个令牌（token），有些场合可能会放到URL（比如api.example.com/?token=xxx）。Base64有三个字符+、/和=，在URL里面有特殊含义，所以要被替换掉：=被省略、+替换成-，/替换成_。这就是Base64URL算法。
 
 
-## JSON Web Token的特点
-- JWT默认是不加密，但也是可以加密的。生成原始Token以后，可以用密钥再加密一次。
-- JWT不加密的情况下，不能将秘密数据写入JWT。
-- JWT的最大缺点是，由于服务器不保存session状态，因此无法在使用过程中废止某个token，或者更改token的权限。也就是说，`一旦JWT签发了，在到期之前就会始终有效，除非服务器部署额外的逻辑`。
-- JWT本身包含了认证信息，任何人都可以获得该令牌的所有权限。为了减少盗用，JWT的有效期应该设置得比较短。对于一些比较重要的权限，使用时应该再次对用户进行认证。
-- 为了减少盗用，JWT不应该使用HTTP协议明码传输，要使用HTTPS协议传输。
-
-
 ## JSON Web Token在Node中的使用
 ### 生成Header
 ```javascript
@@ -139,3 +131,11 @@ console.log(decoded.foo)  // bar
 ```
 
 更多详细用法请参考：[jsonwebtoken npm仓库](https://www.npmjs.com/package/jsonwebtoken)
+
+
+## JSON Web Token的特点
+- JWT默认是不加密，但也是可以加密的。生成原始Token以后，可以用密钥再加密一次。
+- JWT不加密的情况下，不能将秘密数据写入JWT。
+- JWT的最大缺点是，由于服务器不保存session状态，因此无法在使用过程中废止某个token，或者更改token的权限。也就是说，`一旦JWT签发了，在到期之前就会始终有效，除非服务器部署额外的逻辑`。
+- JWT本身包含了认证信息，任何人都可以获得该令牌的所有权限。为了减少盗用，JWT的有效期应该设置得比较短。对于一些比较重要的权限，使用时应该再次对用户进行认证。
+- 为了减少盗用，JWT不应该使用HTTP协议明码传输，要使用HTTPS协议传输。
