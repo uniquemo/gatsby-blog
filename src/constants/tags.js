@@ -12,7 +12,8 @@ const TAGS_COLORS = {
   todo: 'is-danger',
   算法与数据结构: 'is-success',
   阅读写作: 'is-primary',
-  编辑器: 'is-light'
+  编辑器: 'is-link',
+  工程化: 'is-danger'
 }
 
 export default TAGS_COLORS
