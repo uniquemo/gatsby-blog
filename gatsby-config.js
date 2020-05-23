@@ -2,10 +2,11 @@ module.exports = {
   siteMetadata: {
     title: `Momo's blog`,
     author: `Yongxin Mo`,
-    description: `A personal blog with styled components, dark mode, and Netlify CMS.`,
-    siteUrl: `https://yongxinmo.netlify.com/`,
+    description: `A personal blog with gatsby, styled components.`,
+    //siteUrl: `https://yongxinmo.netlify.com/`,
+    siteUrl: `http://47.115.57.59:8001/`,
     social: {
-      github: `https://github.com/Unique111`,
+      github: `https://github.com/Unique111/mo-gatsby-blog`,
     },
   },
   plugins: [
@@ -14,7 +15,7 @@ module.exports = {
     `gatsby-plugin-sass`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
-    `gatsby-plugin-offline`,
+    //`gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-feed-mdx`,
     {
