@@ -7,7 +7,7 @@ layout: "about-page"
 
 <div className='title is-5'>关于本博客</div>
 
-本博客基于 React 框架 [Gatsby](https://gatsbyjs.org) 搭配 [GraphQL](https://graphql.org/) 开发，使用 [Netlify CMS](https://www.netlifycms.org/) 管理文章内容并托管在 [Netlify](https://www.netlify.com/) 平台上。
+本博客基于 React 框架 [Gatsby](https://gatsbyjs.org) 搭配 [GraphQL](https://graphql.org/) 开发。
 
 <br />
 <div className='title is-5'>关于我</div>

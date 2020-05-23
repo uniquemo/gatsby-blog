@@ -1,4 +1,5 @@
 import React from 'react'
+import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
 
 import COLORS from 'constants/colors'
@@ -11,9 +12,23 @@ const Root = styled.div`
 `
 
 const Footer = () => {
+  const { site } = useStaticQuery(
+    graphql`
+      query {
+        site {
+          siteMetadata {
+            author
+          }
+        }
+      }
+    `
+  )
+
+  const { author } = site.siteMetadata
+
   return (
     <Root>
-      © {new Date().getFullYear()} 莫泳欣<br />
+      © {new Date().getFullYear()} {author}<br />
       Powered by <a href='https://www.gatsbyjs.org/' target='__blank'>Gatsby</a>
     </Root>
   )

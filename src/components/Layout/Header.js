@@ -38,6 +38,18 @@ const BannerItem = styled.div`
   }
 `
 
+const RSS = styled.div`
+  width: 38px;
+  height: 38px;
+  line-height: 40px;
+  border-radius: 50%;
+  background-color: #f15d5d;
+  font-size: 0.9em;
+  font-weight: bold;
+  color: #fff;
+  text-align: center;
+`
+
 const BANNERS = [
   {
     label: 'Home',
@@ -71,6 +83,8 @@ const Header = ({ location }) => {
       query {
         site {
           siteMetadata {
+            author
+            siteUrl
             social {
               github
             }
@@ -94,11 +108,13 @@ const Header = ({ location }) => {
     `
   )
 
+  const { social, siteUrl, author } = site.siteMetadata
+
   return (
     <Root>
       <FlexCenter>
         <Image fixed={avatar.childImageSharp.fixed} />
-        <BlogTitle>YongxinMo的博客</BlogTitle>
+        <BlogTitle>{author}的博客</BlogTitle>
         <BannerWrap>
           {BANNERS.map(({ label, route }) => {
             const isActive =
@@ -114,9 +130,14 @@ const Header = ({ location }) => {
           })}
         </BannerWrap>
       </FlexCenter>
-      <a href={site.siteMetadata.social.github} target='__blank'>
-        <Image fixed={githubLogo.childImageSharp.fixed} />
-      </a>
+      <FlexCenter>
+        <a href={social.github} target='__blank'>
+          <Image fixed={githubLogo.childImageSharp.fixed} />
+        </a>
+        <a href={`${siteUrl}/rss.xml`} target='__blank'>
+          <RSS>RSS</RSS>
+        </a>
+      </FlexCenter>
     </Root>
   )
 }

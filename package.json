@@ -1,7 +1,7 @@
 {
   "name": "mo-gatsby-blog",
   "private": true,
-  "description": "A personal blog powered by Netlify CMS",
+  "description": "A personal blog powered by Gatsby",
   "version": "1.0.0",
   "author": "unique.mo <myx3901051@qq.com>",
   "dependencies": {

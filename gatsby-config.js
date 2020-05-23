@@ -1,24 +1,87 @@
 module.exports = {
   siteMetadata: {
     title: `Momo's blog`,
-    author: `Yongxin Mo`,
-    description: `A personal blog with gatsby, styled components.`,
-    //siteUrl: `https://yongxinmo.netlify.com/`,
-    siteUrl: `http://47.115.57.59:8001/`,
+    author: `unique.mo`,
+    description: `A personal blog powered by gatsby, styled components.`,
+    siteUrl: `http://47.115.57.59:8001`,
     social: {
       github: `https://github.com/Unique111/mo-gatsby-blog`,
     },
   },
   plugins: [
-    //`gatsby-plugin-netlify-cms`,
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-sass`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     //`gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-feed-mdx`,
     `gatsby-remark-reading-time`,
+    {
+      resolve: `gatsby-plugin-feed-mdx`,
+      options: {
+        query: `
+          {
+            site {
+              siteMetadata {
+                title
+                description
+                siteUrl
+                site_url: siteUrl
+              }
+            }
+          }
+        `,
+        feeds: [
+          {
+            serialize: ({ query: { site, allMdx } }) => {
+              return allMdx.edges.map(edge => {
+                const { fields, excerpt, frontmatter, html } = edge.node
+                const { layout, date } = frontmatter
+                const URL_MAP = {
+                  'blog-post': '/articles',
+                  'review-post': '/reviews',
+                  'about-page': ''
+                }
+                const url = `${site.siteMetadata.siteUrl}${URL_MAP[layout] || ''}${fields.slug}`
+                return Object.assign({}, frontmatter, {
+                  description: excerpt,
+                  date,
+                  url,
+                  guid: url,
+                  custom_elements: [{ 'content:encoded': html }]
+                });
+              });
+            },
+            query: `
+              {
+                allMdx(
+                  sort: { order: DESC, fields: [frontmatter___date] },
+                ) {
+                  edges {
+                    node {
+                      excerpt
+                      html
+                      fields { slug }
+                      frontmatter {
+                        title
+                        date
+                        layout
+                      }
+                    }
+                  }
+                }
+              }
+            `,
+            output: `/rss.xml`,
+            // optional configuration to insert feed reference in pages:
+            // if `string` is used, it will be used to create RegExp and then test if pathname of
+            // current page satisfied this regular expression;
+            // if not provided or `undefined`, all pages will have feed reference inserted
+            // match: `^/articles`
+          }
+        ]
+      }
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
