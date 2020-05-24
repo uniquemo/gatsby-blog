@@ -5,7 +5,7 @@ module.exports = {
     description: `A personal blog powered by gatsby, styled components.`,
     siteUrl: `http://47.115.57.59:8001`,
     social: {
-      github: `https://github.com/uniquemo/mo-gatsby-blog`,
+      github: `https://github.com/uniquemo/gatsby-blog`,
     },
   },
   plugins: [
