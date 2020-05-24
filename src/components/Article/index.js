@@ -5,7 +5,7 @@ import { FlexCenter } from 'common-styles/Flex'
 import { Date } from 'common-styles/PageInfo'
 import Tags from 'components/Tags'
 import COLORS from 'constants/colors'
-import { PATHS } from 'constants/routes'
+import ROUTES from 'constants/routes'
 
 const Header = styled.div`
   display: flex;
@@ -28,7 +28,7 @@ const Content = styled.div`
 
 const Article = ({ post, showTags }) => {
   const title = post.frontmatter.title || post.fields.slug
-  const postLink = `${PATHS.ARTICLES}${post.fields.slug}`
+  const postLink = `${ROUTES.ARTICLES}${post.fields.slug}`
   const tags = post.frontmatter.tags || []
 
   return (

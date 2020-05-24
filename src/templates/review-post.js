@@ -8,7 +8,7 @@ import Bio from 'components/Bio'
 import Layout from 'components/Layout'
 import { PageTitle } from 'common-styles/Title'
 import { rhythm } from 'utils/typography'
-import { PATHS } from 'constants/routes'
+import ROUTES from 'constants/routes'
 
 const PrevNextWrap = styled.div`
   display: flex;
@@ -42,14 +42,14 @@ const ReviewPostTemplate = props => {
         <PrevNextWrap>
           <div>
             {previous && (
-              <Link to={`${PATHS.REVIEWS}${previous.fields.slug}`} rel='prev'>
+              <Link to={`${ROUTES.REVIEWS}${previous.fields.slug}`} rel='prev'>
                 {`上一篇: ${previous.frontmatter.title}`}
               </Link>
             )}
           </div>
           <div>
             {next && (
-              <Link to={`${PATHS.REVIEWS}${next.fields.slug}`} rel='next'>
+              <Link to={`${ROUTES.REVIEWS}${next.fields.slug}`} rel='next'>
                 {`下一篇: ${next.frontmatter.title}`}
               </Link>
             )}

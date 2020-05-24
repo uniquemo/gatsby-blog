@@ -7,7 +7,7 @@ import Layout from 'components/Layout'
 import SEO from 'components/SEO'
 
 import COLORS from 'constants/colors'
-import { PATHS } from 'constants/routes'
+import ROUTES from 'constants/routes'
 
 const Title = styled.div`
   padding: 5px 0;
@@ -21,7 +21,7 @@ const Title = styled.div`
 const Item = ({ post }) => {
   const title = post.frontmatter.title || post.fields.slug
   const description = post.frontmatter.description
-  const postLink = `${PATHS.REVIEWS}${post.fields.slug}`
+  const postLink = `${ROUTES.REVIEWS}${post.fields.slug}`
 
   return (
     <Title>
