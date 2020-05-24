@@ -92,4 +92,4 @@ seal + emit
   - 通过babel-traverse的ImportDeclaration方法获取依赖属性
 - 生成的JS文件可以在浏览器中运行
 
-Repository: [mo-pack](https://github.com/Unique111/mo-pack)
+Repository: [mo-pack](https://github.com/uniquemo/mo-pack)

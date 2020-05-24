@@ -102,4 +102,4 @@ module.exports = class DemoPlugin {
 - Compiler上负责文件生成的hooks：**emit**，一个异步的hook；
 - Emit生成文件阶段，读取的是**compilation.assets**对象的值，所以需要将要生成的文件添加到该对象上。
 
-详细代码看：[webpack zip-plugin demo](https://github.com/Unique111/mo-demos/blob/master/webpack-demos/zip-plugin/package.json)
+详细代码看：[webpack zip-plugin demo](https://github.com/uniquemo/mo-demos/blob/master/webpack-demos/zip-plugin/package.json)

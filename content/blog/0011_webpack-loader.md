@@ -26,7 +26,7 @@ module.exports = function (source) {
 - Compose（Webpack采取的这种，所以loader的执行顺序为从右到左）
 
 ### 通过一个例子验证loader的执行顺序
-Repository: [webpack loader order demo](https://github.com/Unique111/mo-demos/blob/master/webpack-demos/loader-order/package.json)
+Repository: [webpack loader order demo](https://github.com/uniquemo/mo-demos/blob/master/webpack-demos/loader-order/package.json)
 ```javascript
 const path = require('path')
 
@@ -61,7 +61,7 @@ loader-runner允许你在不安装webpack的情况下运行loaders。详情请�
 - 进行loader的开发和调试。
 
 ### 举个栗子🌰
-Repository: [webpack loader-runner demo](https://github.com/Unique111/mo-demos/blob/master/webpack-demos/raw-loader/package.json)
+Repository: [webpack loader-runner demo](https://github.com/uniquemo/mo-demos/blob/master/webpack-demos/raw-loader/package.json)
 
 raw-loader.js：
 ```javascript
@@ -99,7 +99,7 @@ runLoaders({
 ## 更复杂的loader的开发场景
 
 ### loader的参数获取
-通过loader-utils的getOptions方法获取。具体看：[webpack loader-runner demo](https://github.com/Unique111/mo-demos/blob/master/webpack-demos/raw-loader/package.json)
+通过loader-utils的getOptions方法获取。具体看：[webpack loader-runner demo](https://github.com/uniquemo/mo-demos/blob/master/webpack-demos/raw-loader/package.json)
 ```javascript
 const loaderUtils = require('loader-utils')
 

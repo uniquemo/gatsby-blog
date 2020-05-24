@@ -45,7 +45,7 @@
   "devDependencies": {
     "prettier": "^1.17.0"
   },
-  "homepage": "https://github.com/unique111/mo-gatsby-blog#readme",
+  "homepage": "https://github.com/uniquemo/mo-gatsby-blog#readme",
   "keywords": [
     "gatsby",
     "blog",
@@ -57,7 +57,7 @@
   "main": "n/a",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/unique111/mo-gatsby-blog.git"
+    "url": "git+https://github.com/uniquemo/mo-gatsby-blog.git"
   },
   "scripts": {
     "build": "gatsby build",

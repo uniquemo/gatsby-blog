@@ -12,7 +12,7 @@ const Utterances = React.memo(({ title }) => {
     const el = document.createElement('script')
     el.src = 'https://utteranc.es/client.js'
     el.async = true
-    el.setAttribute('repo', 'Unique111/mo-gatsby-blog')
+    el.setAttribute('repo', 'uniquemo/mo-gatsby-blog')
     el.setAttribute('issue-term', title)
     el.setAttribute('label', 'Comment')
     el.setAttribute('theme', 'github-light')
