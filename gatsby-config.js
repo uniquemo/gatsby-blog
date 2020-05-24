@@ -73,6 +73,7 @@ module.exports = {
               }
             `,
             output: `/rss.xml`,
+            title: 'unique.mo的博客',
             // optional configuration to insert feed reference in pages:
             // if `string` is used, it will be used to create RegExp and then test if pathname of
             // current page satisfied this regular expression;
@@ -168,13 +169,11 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Gatsby Starter Blog`,
-        short_name: `GatsbyJS`,
+        name: `Momo's Blog`,
         start_url: `/`,
-        background_color: `#ffffff`,
+        background_color: `#fff`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        // edit below
         icon: `content/assets/profile-pic.jpeg`,
       },
     },
