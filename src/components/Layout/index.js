@@ -12,6 +12,7 @@ const Root = styled.div`
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  min-width: 1200px;
   font: 16px "open sans", "Helvetica Neue", "Microsoft Yahei", Helvetica, Arial, sans-serif;
   color: ${COLORS.FONT_GREY};
 `

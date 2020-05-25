@@ -1,7 +1,10 @@
 import React from 'react'
+import { graphql } from 'gatsby'
+import Link from 'common-styles/Link'
 import Layout from 'components/Layout'
 import SEO from 'components/SEO'
 import TAGS_COLORS from 'constants/tags'
+import ROUTES from 'constants/routes'
 
 const { useState, useEffect } = React
 
@@ -32,7 +35,9 @@ const TagsPage = ({ data, location }) => {
         {Array.from(tagsMap).map(([tag, count], index) => {
           return (
             <span key={index} className={`tag ${TAGS_COLORS[tag]}`}>
-              <strong>{`${tag} (${count})`}</strong>
+              <Link to={`${ROUTES.TAGS}/${tag}`}>
+                <strong>{`${tag} (${count})`}</strong>
+              </Link>
             </span>
           )
         })}

@@ -12,7 +12,7 @@ import { PageTitle } from 'common-styles/Title'
 import { FlexCenter } from 'common-styles/Flex'
 import { Date } from 'common-styles/PageInfo'
 import { rhythm } from 'utils/typography'
-import { PATHS } from 'constants/routes'
+import ROUTES from 'constants/routes'
 
 const ArticleDate = styled(Date)`
   margin: 0.5em 0 1em;
@@ -34,6 +34,8 @@ class BlogPostTemplate extends React.Component {
     const { title, tags: allTags } = post.frontmatter
     const tags = allTags || []
 
+    const { readingTime } = post.fields
+
     const siteTitle = this.props.data.site.siteMetadata.title
     const { previous, next } = this.props.pageContext
 
@@ -50,7 +52,10 @@ class BlogPostTemplate extends React.Component {
               <Tags tags={tags} />
             </TagsWrap>
           </FlexCenter>
-          <ArticleDate>{post.frontmatter.date}</ArticleDate>
+          <ArticleDate>
+            {post.frontmatter.date}&nbsp;
+            <span>{`总共 ${readingTime.words} words, ${readingTime.text}`}</span>
+          </ArticleDate>
           <MDXRenderer>{post.body}</MDXRenderer>
           <hr style={{ marginBottom: rhythm(0.8) }} />
           <Bio />
@@ -58,14 +63,14 @@ class BlogPostTemplate extends React.Component {
           <PrevNextWrap>
             <div>
               {previous && (
-                <Link to={`${PATHS.ARTICLES}${previous.fields.slug}`} rel='prev'>
+                <Link to={`${ROUTES.ARTICLES}${previous.fields.slug}`} rel='prev'>
                   {`上一篇: ${previous.frontmatter.title}`}
                 </Link>
               )}
             </div>
             <div>
               {next && (
-                <Link to={`${PATHS.ARTICLES}${next.fields.slug}`} rel='next'>
+                <Link to={`${ROUTES.ARTICLES}${next.fields.slug}`} rel='next'>
                   {`下一篇: ${next.frontmatter.title}`}
                 </Link>
               )}
@@ -93,8 +98,13 @@ export const pageQuery = graphql`
       id
       excerpt(pruneLength: 160)
       body
+      tableOfContents
       fields {
         slug
+        readingTime {
+          text
+          words
+        }
       }
       frontmatter {
         title

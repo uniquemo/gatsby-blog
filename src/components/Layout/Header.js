@@ -10,6 +10,7 @@ import COLORS from 'constants/colors'
 
 const Root = styled.div`
   width: 100%;
+  min-width: 1200px;
   position: fixed;
   z-index: 10;
   background-color: #fff;
@@ -37,6 +38,18 @@ const BannerItem = styled.div`
   }
 `
 
+const RSS = styled.div`
+  width: 38px;
+  height: 38px;
+  line-height: 40px;
+  border-radius: 50%;
+  background-color: #f15d5d;
+  font-size: 0.9em;
+  font-weight: bold;
+  color: #fff;
+  text-align: center;
+`
+
 const BANNERS = [
   {
     label: 'Home',
@@ -55,6 +68,10 @@ const BANNERS = [
     route: ROUTES.TAGS
   },
   {
+    label: 'Reviews',
+    route: ROUTES.REVIEWS
+  },
+  {
     label: 'About',
     route: ROUTES.ABOUT
   }
@@ -66,6 +83,8 @@ const Header = ({ location }) => {
       query {
         site {
           siteMetadata {
+            author
+            siteUrl
             social {
               github
             }
@@ -89,11 +108,13 @@ const Header = ({ location }) => {
     `
   )
 
+  const { social, siteUrl, author } = site.siteMetadata
+
   return (
     <Root>
       <FlexCenter>
         <Image fixed={avatar.childImageSharp.fixed} />
-        <BlogTitle>莫泳欣的博客</BlogTitle>
+        <BlogTitle>{author}的博客</BlogTitle>
         <BannerWrap>
           {BANNERS.map(({ label, route }) => {
             const isActive =
@@ -109,9 +130,14 @@ const Header = ({ location }) => {
           })}
         </BannerWrap>
       </FlexCenter>
-      <a href={site.siteMetadata.social.github} target='__blank'>
-        <Image fixed={githubLogo.childImageSharp.fixed} />
-      </a>
+      <FlexCenter>
+        <a href={social.github} target='__blank'>
+          <Image fixed={githubLogo.childImageSharp.fixed} />
+        </a>
+        <a href={`${siteUrl}/rss.xml`} target='__blank'>
+          <RSS>RSS</RSS>
+        </a>
+      </FlexCenter>
     </Root>
   )
 }
