@@ -151,6 +151,7 @@ module.exports = {
             resolve: 'gatsby-remark-toc',
             options: {
               header: 'Table of Contents',
+              reuseExistingHeader: true,
               include: [
                 'content/**/*.md'
               ]
