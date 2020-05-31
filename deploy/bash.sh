@@ -6,6 +6,6 @@ rm -rf ./.cache
 rm -rf ./public
 yarn build
 
-scp -r ./public/** root@47.115.57.59:/usr/share/nginx/html/blog
+cp -r ./public/** /usr/share/nginx/html/blog
 
 echo "Successfully deploy gatsby-blog"
