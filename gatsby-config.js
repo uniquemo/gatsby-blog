@@ -3,7 +3,7 @@ module.exports = {
     title: `Momo's blog`,
     author: `unique.mo`,
     description: `A personal blog powered by gatsby, styled components.`,
-    siteUrl: `http://47.115.57.59`,
+    siteUrl: `http://www.uniquemo.cn`,
     social: {
       github: `https://github.com/uniquemo/gatsby-blog`,
     },
