@@ -13,7 +13,8 @@ const TAGS_COLORS = {
   阅读写作: 'is-primary',
   编辑器: 'is-link',
   工程化: 'is-danger',
-  react: 'is-warning'
+  react: 'is-warning',
+  设计模式: 'is-danger'
 }
 
 export default TAGS_COLORS
