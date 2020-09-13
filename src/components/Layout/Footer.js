@@ -29,7 +29,8 @@ const Footer = () => {
   return (
     <Root>
       © {new Date().getFullYear()} {author}<br />
-      Powered by <a href='https://www.gatsbyjs.org/' target='__blank'>Gatsby</a>
+      Powered by <a href='https://www.gatsbyjs.org/' target='__blank'>Gatsby</a>&nbsp;
+      备案号 <a href='https://beian.miit.gov.cn' target='__blank'>粤ICP备20047399号</a>
     </Root>
   )
 }
