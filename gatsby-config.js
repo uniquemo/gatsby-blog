@@ -8,9 +8,13 @@ module.exports = {
       github: `https://github.com/uniquemo/gatsby-blog`,
     },
   },
+  flags: {
+    FAST_DEV: true,
+  },
   plugins: [
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-sass`,
+    `gatsby-plugin-image`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     //`gatsby-plugin-offline`,
@@ -114,11 +118,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
-        extensions: [".mdx", ".md"],
-        tableOfContents: {
-          heading: null,
-          maxDepth: 6,
-        },
+        extensions: [".md"],
         gatsbyRemarkPlugins: [
           {
             resolve: `gatsby-remark-images`,
@@ -160,13 +160,13 @@ module.exports = {
         ],
       },
     },
-    {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        // edit below
-        // trackingId: `ADD YOUR TRACKING ID HERE`,
-      },
-    },
+    // {
+    //   resolve: `gatsby-plugin-google-analytics`,
+    //   options: {
+    //     // edit below
+    //     // trackingId: `ADD YOUR TRACKING ID HERE`,
+    //   },
+    // },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {

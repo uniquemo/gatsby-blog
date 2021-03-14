@@ -1,6 +1,6 @@
 import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
-import Image from 'gatsby-image'
+import { GatsbyImage } from 'gatsby-plugin-image';
 import styled from 'styled-components'
 import Link from 'common-styles/Link'
 import { FlexCenter } from 'common-styles/Flex'
@@ -92,16 +92,18 @@ const Header = ({ location }) => {
         }
         avatar: file(absolutePath: { regex: "/profile-pic.jpeg/" }) {
           childImageSharp {
-            fixed(width: 50, height: 50) {
-              ...GatsbyImageSharpFixed
-            }
+            gatsbyImageData(
+              width: 50
+              height: 50
+            )
           }
         }
         githubLogo: file(absolutePath: { regex: "/github-logo.png/" }) {
           childImageSharp {
-            fixed(width: 50, height: 50) {
-              ...GatsbyImageSharpFixed
-            }
+            gatsbyImageData(
+              width: 50
+              height: 50
+            )
           }
         }
       }
@@ -113,7 +115,7 @@ const Header = ({ location }) => {
   return (
     <Root>
       <FlexCenter>
-        <Image fixed={avatar.childImageSharp.fixed} />
+        <GatsbyImage image={avatar.childImageSharp.gatsbyImageData} />
         <BlogTitle>{author}的博客</BlogTitle>
         <BannerWrap>
           {BANNERS.map(({ label, route }) => {
@@ -132,7 +134,7 @@ const Header = ({ location }) => {
       </FlexCenter>
       <FlexCenter>
         <a href={social.github} target='__blank'>
-          <Image fixed={githubLogo.childImageSharp.fixed} />
+          <GatsbyImage image={githubLogo.childImageSharp.gatsbyImageData} />
         </a>
         <a href={`${siteUrl}/rss.xml`} target='__blank'>
           <RSS>RSS</RSS>

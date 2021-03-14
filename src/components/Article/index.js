@@ -48,7 +48,7 @@ const Article = ({ post, showTags }) => {
       <div>
         <Link to={postLink}>
           <button className='button is-small'>
-            继续阅读 >
+            {`继续阅读 >`}
           </button>
         </Link>
       </div>
