@@ -115,7 +115,7 @@ const Header = ({ location }) => {
   return (
     <Root>
       <FlexCenter>
-        <GatsbyImage image={avatar.childImageSharp.gatsbyImageData} />
+        <GatsbyImage image={avatar.childImageSharp.gatsbyImageData} alt='avatar' />
         <BlogTitle>{author}的博客</BlogTitle>
         <BannerWrap>
           {BANNERS.map(({ label, route }) => {
@@ -134,7 +134,7 @@ const Header = ({ location }) => {
       </FlexCenter>
       <FlexCenter>
         <a href={social.github} target='__blank'>
-          <GatsbyImage image={githubLogo.childImageSharp.gatsbyImageData} />
+          <GatsbyImage image={githubLogo.childImageSharp.gatsbyImageData} alt='github' />
         </a>
         <a href={`${siteUrl}/rss.xml`} target='__blank'>
           <RSS>RSS</RSS>
