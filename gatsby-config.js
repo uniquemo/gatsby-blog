@@ -8,6 +8,7 @@ module.exports = {
       github: `https://github.com/uniquemo/gatsby-blog`,
     },
   },
+  pathPrefix: '/blog',
   flags: {
     FAST_DEV: true,
   },

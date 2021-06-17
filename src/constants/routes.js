@@ -6,7 +6,7 @@ export const PATHS = {
   ABOUT: 'about'
 }
 
-const HOME = `${__PATH_PREFIX__}/`
+const HOME = `/`
 const ARTICLES = `${HOME}${PATHS.ARTICLES}`
 const ARCHIVES = `${HOME}${PATHS.ARCHIVES}`
 const TAGS = `${HOME}${PATHS.TAGS}`
