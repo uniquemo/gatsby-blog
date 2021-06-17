@@ -60,11 +60,11 @@
     "url": "git+https://github.com/uniquemo/gatsby-blog.git"
   },
   "scripts": {
-    "build": "gatsby build",
     "develop": "gatsby develop --port 4200",
     "format": "prettier --write src/**/*.{js,jsx}",
     "start": "npm run develop",
-    "serve": "gatsby serve",
+    "build": "gatsby build --prefix-paths",
+    "serve": "gatsby serve --prefix-paths",
     "release": "./deploy/bash.sh"
   }
 }
