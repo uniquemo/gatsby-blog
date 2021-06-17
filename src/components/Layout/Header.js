@@ -124,7 +124,7 @@ const Header = ({ location }) => {
               (withPrefix(route) !== withPrefix(ROUTES.HOME) && location.pathname.startsWith(withPrefix(route)))
             return (
               <BannerItem key={label} isActive={isActive}>
-                <Link to={route}>
+                <Link to={route.endsWith('/') ? route : `${route}/`}>
                   <strong>{label}</strong>
                 </Link>
               </BannerItem>
