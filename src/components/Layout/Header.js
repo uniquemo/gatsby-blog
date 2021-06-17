@@ -1,5 +1,5 @@
 import React from 'react'
-import { useStaticQuery, graphql } from 'gatsby'
+import { useStaticQuery, graphql, withPrefix } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image';
 import styled from 'styled-components'
 import Link from 'common-styles/Link'
@@ -120,8 +120,8 @@ const Header = ({ location }) => {
         <BannerWrap>
           {BANNERS.map(({ label, route }) => {
             const isActive =
-              (route === ROUTES.HOME && location.pathname === ROUTES.HOME) ||
-              (route !== ROUTES.HOME && location.pathname.startsWith(route))
+              (withPrefix(route) === withPrefix(ROUTES.HOME) && location.pathname === withPrefix(ROUTES.HOME)) ||
+              (withPrefix(route) !== withPrefix(ROUTES.HOME) && location.pathname.startsWith(withPrefix(route)))
             return (
               <BannerItem key={label} isActive={isActive}>
                 <Link to={route}>
