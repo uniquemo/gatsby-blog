@@ -23,9 +23,7 @@ layout: blog-post
 ### Remote Host
 当然，静态站点是需要部署到远端服务器的，这就添加对应的 nginx 配置了：
 ```bash
-location /blog/ {
-  root /user/share/nginx/html/blog;
-  index index.html index.htm;
-  try_files $uri /index.html;
+location /blog {
+  alias /user/share/nginx/html/blog;
 }
 ```
