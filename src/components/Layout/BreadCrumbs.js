@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'gatsby'
 import styled from 'styled-components'
 import { FlexCenter } from 'common-styles/Flex'
+import { isDev } from 'utils/env'
 
 const Root = styled(FlexCenter)`
   padding: 1em 0;
@@ -24,9 +25,10 @@ const BreadCrumbs = ({ location }) => {
     const pathObjs = []
 
     paths.forEach((p, index) => {
+      const route = `/${paths.slice(isDev ? 0 : 1, index + 1).join('/')}`
       pathObjs.push({
         label: p,
-        route: `/${paths.slice(0, index + 1).join('/')}`
+        route: route.endsWith('/') ? route : `${route}/`
       })
     })
 
