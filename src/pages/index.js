@@ -3,7 +3,7 @@ import { graphql } from 'gatsby'
 import styled from 'styled-components'
 
 import Layout from 'components/Layout'
-import SEO from 'components/SEO'
+import Seo from 'components/SEO'
 import Article from 'components/Article'
 import Link from 'common-styles/Link'
 import ROUTES from 'constants/routes'
@@ -19,7 +19,7 @@ const IndexPage = ({ data, location }) => {
 
   return (
     <Layout location={location}>
-      <SEO title='Home' keywords={[`blog`, `gatsby`, `javascript`, `react`]} />
+      <Seo title='Home' keywords={[`blog`, `gatsby`, `javascript`, `react`]} />
       <LatestArticles>
         <div className='title is-5'>最近文章</div>
         <LatestArticlesWrap>

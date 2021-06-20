@@ -38,7 +38,7 @@ const BannerItem = styled.div`
   }
 `
 
-const RSS = styled.div`
+const Rss = styled.div`
   width: 38px;
   height: 38px;
   line-height: 40px;
@@ -137,7 +137,7 @@ const Header = ({ location }) => {
           <GatsbyImage image={githubLogo.childImageSharp.gatsbyImageData} alt='github' />
         </a>
         <a href={`${siteUrl}/rss.xml`} target='__blank'>
-          <RSS>RSS</RSS>
+          <Rss>RSS</Rss>
         </a>
       </FlexCenter>
     </Root>

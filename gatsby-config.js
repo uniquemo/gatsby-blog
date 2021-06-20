@@ -3,7 +3,7 @@ module.exports = {
     title: `Momo's blog`,
     author: `unique.mo`,
     description: `A personal blog powered by gatsby, styled components.`,
-    siteUrl: `http://www.uniquemo.cn`,
+    siteUrl: `http://www.uniquemo.cn/blog`,
     social: {
       github: `https://github.com/uniquemo/gatsby-blog`,
     },
@@ -22,7 +22,7 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-remark-reading-time`,
     {
-      resolve: `gatsby-plugin-feed-mdx`,
+      resolve: `gatsby-plugin-feed`,
       options: {
         query: `
           {

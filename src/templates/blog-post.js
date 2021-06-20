@@ -3,7 +3,7 @@ import { Link, graphql } from 'gatsby'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import styled from 'styled-components'
 
-import SEO from 'components/SEO'
+import Seo from 'components/SEO'
 import Bio from 'components/Bio'
 import Layout from 'components/Layout'
 import Utterances from 'components/Utterances'
@@ -41,7 +41,7 @@ class BlogPostTemplate extends React.Component {
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
-        <SEO
+        <Seo
           title={title}
           description={post.frontmatter.description || post.excerpt}
         />

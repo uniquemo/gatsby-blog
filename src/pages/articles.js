@@ -3,7 +3,7 @@ import { graphql } from 'gatsby'
 import styled from 'styled-components'
 
 import Layout from 'components/Layout'
-import SEO from 'components/SEO'
+import Seo from 'components/SEO'
 import Article from 'components/Article'
 
 const PostWrap = styled.div`
@@ -16,7 +16,7 @@ const Articles = ({ data, location }) => {
 
   return (
     <Layout location={location} title={siteTitle}>
-      <SEO title='All posts' />
+      <Seo title='All posts' />
       <PostWrap>
         {posts.map(({ node: post }, index) => <Article post={post} key={index} showTags />)}
       </PostWrap>

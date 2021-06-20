@@ -2,7 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import Link from 'common-styles/Link'
 import Layout from 'components/Layout'
-import SEO from 'components/SEO'
+import Seo from 'components/SEO'
 import TAGS_COLORS from 'constants/tags'
 import ROUTES from 'constants/routes'
 
@@ -30,7 +30,7 @@ const TagsPage = ({ data, location }) => {
 
   return (
     <Layout location={location}>
-      <SEO title='Tags page' keywords={['FrontEnd Developer', 'React', 'Node', 'Gatsby']} />
+      <Seo title='Tags page' keywords={['FrontEnd Developer', 'React', 'Node', 'Gatsby']} />
       <div className='tags'>
         {Array.from(tagsMap).map(([tag, count], index) => {
           return (

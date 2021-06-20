@@ -3,7 +3,7 @@ import { Link, graphql } from 'gatsby'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import styled from 'styled-components'
 
-import SEO from 'components/SEO'
+import Seo from 'components/SEO'
 import Bio from 'components/Bio'
 import Layout from 'components/Layout'
 import { PageTitle } from 'common-styles/Title'
@@ -30,7 +30,7 @@ const ReviewPostTemplate = props => {
 
   return (
     <Layout location={props.location} title={siteTitle}>
-      <SEO title={title} description={post.frontmatter.description || post.excerpt} />
+      <Seo title={title} description={post.frontmatter.description || post.excerpt} />
       <div className='box'>
         <PageTitle>{title}</PageTitle>
         <Content>

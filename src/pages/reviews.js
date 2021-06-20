@@ -4,7 +4,7 @@ import styled from 'styled-components'
 
 import Link from 'common-styles/Link'
 import Layout from 'components/Layout'
-import SEO from 'components/SEO'
+import Seo from 'components/SEO'
 
 import COLORS from 'constants/colors'
 import ROUTES from 'constants/routes'
@@ -39,7 +39,7 @@ const Reviews = ({ data, location }) => {
 
   return (
     <Layout location={location} title={siteTitle}>
-      <SEO title='All reviews' />
+      <Seo title='All reviews' />
       <div className='box'>
         {posts.map(({ node: post }, index) => <Item post={post} key={index} />)}
       </div>
