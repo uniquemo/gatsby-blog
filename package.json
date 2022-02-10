@@ -30,7 +30,7 @@
     "gatsby-remark-vscode": "^3.2.1",
     "gatsby-source-filesystem": "^3.9.0",
     "gatsby-transformer-sharp": "^3.9.0",
-    "node-sass": "^5.0.0",
+    "node-sass": "^7.0.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-helmet": "^6.1.0",
